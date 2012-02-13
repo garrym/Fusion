@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C1AFE62-4052-44B9-8205-BBED42686F98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fusion.Core</RootNamespace>
+    <AssemblyName>Fusion.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\StringValueAttribute.cs" />
+    <Compile Include="Authentication\AuthenticationKey.cs" />
+    <Compile Include="CacheProviders\DatabaseCacheProvider.cs" />
+    <Compile Include="CacheProviders\FileCacheProvider.cs" />
+    <Compile Include="CacheProviders\ICacheProvider.cs" />
+    <Compile Include="CacheProviders\MemoryCacheProvider.cs" />
+    <Compile Include="Connector.cs" />
+    <Compile Include="Enums\AttributeType.cs" />
+    <Compile Include="Enums\AuthenticationKeyType.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\OrderState.cs" />
+    <Compile Include="Enums\Race.cs" />
+    <Compile Include="Enums\RequestParameter.cs" />
+    <Compile Include="Enums\TransactionFor.cs" />
+    <Compile Include="Enums\TransactionType.cs" />
+    <Compile Include="Authentication\IAuthenticationKey.cs" />
+    <Compile Include="Authentication\NewAuthenticationKey.cs" />
+    <Compile Include="Parsers\ErrorListParser.cs" />
+    <Compile Include="Parsers\IInternalParser.cs" />
+    <Compile Include="Parsers\Parser.cs" />
+    <Compile Include="Types\Collections\AllianceCollection.cs" />
+    <Compile Include="Types\Collections\AssetCollection.cs" />
+    <Compile Include="Types\Collections\CharacterCollection.cs" />
+    <Compile Include="Types\Collections\ContactCollection.cs" />
+    <Compile Include="Types\Collections\ErrorCollection.cs" />
+    <Compile Include="Types\Collections\KillLogCollection.cs" />
+    <Compile Include="Types\Collections\MailBodyCollection.cs" />
+    <Compile Include="Types\Collections\MailMessageCollection.cs" />
+    <Compile Include="Types\Collections\MarketOrderCollection.cs" />
+    <Compile Include="Types\Collections\RefTypeCollection.cs" />
+    <Compile Include="Types\Collections\WalletJournalItemCollection.cs" />
+    <Compile Include="Types\Collections\WalletTransactionCollection.cs" />
+    <Compile Include="Types\Error.cs" />
+    <Compile Include="Exceptions\CustomException.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="Utility\Helpers.cs" />
+    <Compile Include="IConnector.cs" />
+    <Compile Include="Parsers\AccountBalanceParser.cs" />
+    <Compile Include="Parsers\AllianceListParser.cs" />
+    <Compile Include="Parsers\AssetsParser.cs" />
+    <Compile Include="Parsers\AttackerParser.cs" />
+    <Compile Include="Parsers\AuthenticationKeyTypeParser.cs" />
+    <Compile Include="Parsers\CharacterParser.cs" />
+    <Compile Include="Parsers\CharacterSheetParser.cs" />
+    <Compile Include="Parsers\CharacterSkillParser.cs" />
+    <Compile Include="Parsers\ContactListParser.cs" />
+    <Compile Include="Parsers\ErrorParser.cs" />
+    <Compile Include="Parsers\IParser.cs" />
+    <Compile Include="Parsers\KillLogParser.cs" />
+    <Compile Include="Parsers\MailBodyParser.cs" />
+    <Compile Include="Parsers\MailMessageParser.cs" />
+    <Compile Include="Parsers\MarketOrderParser.cs" />
+    <Compile Include="Parsers\RefTypesParser.cs" />
+    <Compile Include="Parsers\ServerStatusParser.cs" />
+    <Compile Include="Parsers\VictimParser.cs" />
+    <Compile Include="Parsers\WalletJournalParser.cs" />
+    <Compile Include="Parsers\WalletTransactionParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request.cs" />
+    <Compile Include="RequestType.cs" />
+    <Compile Include="RequestTypes.cs" />
+    <Compile Include="Response.cs" />
+    <Compile Include="Types\Alliance.cs" />
+    <Compile Include="Types\Asset.cs" />
+    <Compile Include="Types\Attacker.cs" />
+    <Compile Include="Types\Attribute.cs" />
+    <Compile Include="Types\AttributeEnhancer.cs" />
+    <Compile Include="Types\Character.cs" />
+    <Compile Include="Types\CharacterAttribute.cs" />
+    <Compile Include="Types\CharacterSheet.cs" />
+    <Compile Include="Types\CharacterSkill.cs" />
+    <Compile Include="Types\CharacterSkillInTraining.cs" />
+    <Compile Include="Types\Contact.cs" />
+    <Compile Include="Types\KillLog.cs" />
+    <Compile Include="Types\MailBody.cs" />
+    <Compile Include="Types\MailMessage.cs" />
+    <Compile Include="Types\MarketOrder.cs" />
+    <Compile Include="Types\RefType.cs" />
+    <Compile Include="Types\ServerStatus.cs" />
+    <Compile Include="Types\Skill.cs" />
+    <Compile Include="Types\SkillGroup.cs" />
+    <Compile Include="Types\SkillTree.cs" />
+    <Compile Include="Types\SystemKills.cs" />
+    <Compile Include="Types\Victim.cs" />
+    <Compile Include="Types\WalletJournalItem.cs" />
+    <Compile Include="Types\WalletTransaction.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

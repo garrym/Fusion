@@ -1,0 +1,86 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">True</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:Character.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:CharacterAttribute.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:CharacterSheet.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:CharacterSkill.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:CharacterSkillInTraining.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:Contact.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:Error.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:KillLog.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:MailBody.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:MailMessage.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:MarketOrder.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:RefType.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:ServerStatus.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:Skill.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:SkillGroup.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:SkillTree.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:SystemKills.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:Victim.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:WalletJournalItem.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:WalletTransaction.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:AuthenticationKey.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:Connector.cs" caret="91" fromTop="3" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:Helpers.cs" caret="727" fromTop="18" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:IAuthenticationKey.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:IConnector.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:NewAuthenticationKey.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:Request.cs" caret="980" fromTop="14" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:RequestType.cs" caret="0" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:RequestTypes.cs" caret="2990" fromTop="33" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:Response.cs" caret="0" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:ErrorParser.cs" caret="179" fromTop="8" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:ErrorParser.cs" caret="501" fromTop="17" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:IInternalParser.cs" caret="97" fromTop="4" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:KillLogParser.cs" caret="1753" fromTop="41" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:KillLogParser.cs" caret="362" fromTop="12" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:MailBodyParser.cs" caret="1052" fromTop="28" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:MailBodyParser.cs" caret="328" fromTop="11" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:MailMessageParser.cs" caret="1804" fromTop="38" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:MailMessageParser.cs" caret="339" fromTop="11" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:MarketOrderParser.cs" caret="2333" fromTop="42" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:MarketOrderParser.cs" caret="365" fromTop="12" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:Parser.cs" caret="1093" fromTop="33" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:RefTypesParser.cs" caret="1053" fromTop="29" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:RefTypesParser.cs" caret="328" fromTop="11" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:ServerStatusParser.cs" caret="904" fromTop="24" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:ServerStatusParser.cs" caret="265" fromTop="10" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:ServerStatusParser.cs" caret="649" fromTop="16" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:VictimParser.cs" caret="181" fromTop="8" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:VictimParser.cs" caret="915" fromTop="21" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:WalletJournalParser.cs" caret="2393" fromTop="40" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:WalletJournalParser.cs" caret="351" fromTop="11" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:WalletTransactionParser.cs" caret="2052" fromTop="40" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Parsers/f:WalletTransactionParser.cs" caret="381" fromTop="12" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/d:Types/f:Alliance.cs" caret="285" fromTop="12" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:Connector.cs" caret="7108" fromTop="29" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:Connector.cs" caret="13" fromTop="0" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:Helpers.cs" caret="665" fromTop="17" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:RequestTypes.cs" caret="1406" fromTop="19" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:RequestTypes.cs" caret="538" fromTop="12" />
+      <File id="8C1AFE62-4052-44B9-8205-BBED42686F98/f:RequestTypes.cs" caret="2990" fromTop="24" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
