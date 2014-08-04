@@ -34,13 +34,13 @@ namespace Fusion.Core.Extensions
             var converter = TypeDescriptor.GetConverter(typeof(T));
 
             if (value == null)
-                throw new CustomException("Value is blank");
+                throw new ApiException("Value is blank");
 
             if (converter == null)
-                throw new CustomException("Could not get TypeConverter for type {0}", typeof(T).ToString());
+                throw new ApiException("Could not get TypeConverter for type {0}", typeof(T).ToString());
 
             if (!converter.IsValid(value))
-                throw new CustomException("Could not convert value");
+                throw new ApiException("Could not convert value");
 
             return (T)(converter.ConvertFromInvariantString(value));
         }
@@ -101,7 +101,7 @@ namespace Fusion.Core.Extensions
         {
             var converter = TypeDescriptor.GetConverter(typeof(T));
             if (converter == null)
-                throw new CustomException("Unable to get a converter");
+                throw new ApiException("Unable to get a converter");
 
             var list = new List<T>();
             var values = element.AttributeAsString(attributeName);
@@ -141,14 +141,14 @@ namespace Fusion.Core.Extensions
             var converter = TypeDescriptor.GetConverter(typeof(T));
 
             if (attribute == null)
-                throw new CustomException("Attribute {0} is blank", attributeName);
+                throw new ApiException("Attribute {0} is blank", attributeName);
 
             if (converter == null)
-                throw new CustomException("Could not get TypeConverter for type {0}", typeof(T).ToString());
+                throw new ApiException("Could not get TypeConverter for type {0}", typeof(T).ToString());
 
             var value = attribute.Value;
             if (!converter.IsValid(value))
-                throw new CustomException("Could not convert value");
+                throw new ApiException("Could not convert value");
 
             return (T)(converter.ConvertFromInvariantString(value));
         }

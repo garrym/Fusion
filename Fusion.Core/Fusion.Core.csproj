@@ -38,6 +38,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ApiException.cs" />
     <Compile Include="Types\AccountStatus.cs" />
     <Compile Include="Parsers\AccountStatusParser.cs" />
     <Compile Include="Attributes\StringValueAttribute.cs" />
@@ -73,7 +74,6 @@
     <Compile Include="Types\Collections\WalletJournalItemCollection.cs" />
     <Compile Include="Types\Collections\WalletTransactionCollection.cs" />
     <Compile Include="Types\Error.cs" />
-    <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\XElementExtensions.cs" />
