@@ -1,7 +1,10 @@
-﻿namespace Fusion.Core
+﻿using Fusion.Core.Types;
+
+namespace Fusion.Core
 {
-    public interface IConnector
+    public interface IApiClient
     {
+        Response<AccountStatus> GetAccountStatus();
         //ServerStatus GetServerStatus();
         //IList<Character> GetCharacters();
         //decimal GetAccountBalance(long characterId);

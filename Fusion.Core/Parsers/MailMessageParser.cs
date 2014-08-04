@@ -1,18 +1,15 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class MailMessageParser : Parser, IParser<MailMessageCollection>
+    public class MailMessageParser: Parser<MailMessageCollection>
     {
-        public Response<MailMessageCollection> Parse(XDocument document)
+        protected override MailMessageCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<MailMessageCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var mailMessages = new MailMessageCollection();
             foreach (var element in document.Root.Element("result").Element("rowset").Elements("row"))
             {
@@ -33,8 +30,7 @@ namespace Fusion.Core.Parsers
                     message.Read = false;
                 mailMessages.Add(message);
             }
-            response.Data = mailMessages;
-            return response;
+            return mailMessages;
         }
     }
 }

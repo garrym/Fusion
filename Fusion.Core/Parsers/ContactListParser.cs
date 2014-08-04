@@ -1,18 +1,15 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class ContactListParser : Parser, IParser<ContactCollection>
+    public class ContactListParser: Parser<ContactCollection>
     {
-        public Response<ContactCollection> Parse(XDocument document)
+        protected override ContactCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<ContactCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var contacts = new ContactCollection();
 
             foreach (var element in document.Root.Element("result").Element("rowset").Elements("row"))
@@ -27,8 +24,7 @@ namespace Fusion.Core.Parsers
                 contacts.Add(contact);
             }
 
-            response.Data = contacts;
-            return response;
+            return contacts;
         }
     }
 }

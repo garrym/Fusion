@@ -4,8 +4,9 @@
     {
         public static class Account
         {
-            public static readonly RequestType Characters = new RequestType("/account/Characters.xml.aspx", true);
             public static readonly RequestType AccountStatus = new RequestType("/account/AccountStatus.xml.aspx", true);
+            public static readonly RequestType ApiKeyInfo = new RequestType("/account/APIKeyInfo.xml.aspx", true);
+            public static readonly RequestType Characters = new RequestType("/account/Characters.xml.aspx", true);
         }
 
         public static class Character

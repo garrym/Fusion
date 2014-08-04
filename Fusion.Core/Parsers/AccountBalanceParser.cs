@@ -1,20 +1,16 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 
 namespace Fusion.Core.Parsers
 {
-    public class AccountBalanceParser : Parser, IParser<decimal>
+    public class AccountBalanceParser : Parser<decimal>
     {
-        public Response<decimal> Parse(XDocument document)
+        protected override decimal ParseData(XDocument document)
         {
-            var response = BuildResponse<decimal>(document);
-            if (response.HasErrors)
-                return response;
-
             var element = document.Root.Element("result").Element("rowset").Element("row");
             var balance = element.AttributeAsDecimal("balance");
-            response.Data = balance;
-            return response;
+            return balance;
         }
     }
 }

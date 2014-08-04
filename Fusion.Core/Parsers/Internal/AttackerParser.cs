@@ -1,8 +1,9 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 
-namespace Fusion.Core.Parsers
+namespace Fusion.Core.Parsers.Internal
 {
     public class AttackerParser : IInternalParser<Attacker>
     {

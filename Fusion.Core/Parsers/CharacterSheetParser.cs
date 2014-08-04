@@ -3,18 +3,16 @@ using System.Linq;
 using System.Xml.Linq;
 using Fusion.Core.Enums;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
+using Fusion.Core.Parsers.Internal;
 using Fusion.Core.Types;
 
 namespace Fusion.Core.Parsers
 {
-    public class CharacterSheetParser : Parser, IParser<CharacterSheet>
+    public class CharacterSheetParser: Parser<CharacterSheet>
     {
-        public Response<CharacterSheet> Parse(XDocument document)
+        protected override CharacterSheet ParseData(XDocument document)
         {
-            var response = BuildResponse<CharacterSheet>(document);
-            if (response.HasErrors)
-                return response;
-
             var element = document.Root.Element("result");
             var characterSheet = new CharacterSheet
                                      {
@@ -46,8 +44,7 @@ namespace Fusion.Core.Parsers
                 }
             }
 
-            response.Data = characterSheet;
-            return response;
+            return characterSheet;
         }
     }
 }

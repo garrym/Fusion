@@ -1,17 +1,14 @@
 ﻿using System.Xml.Linq;
-using Fusion.Core.Types;
+using Fusion.Core.Parsers.Abstract;
+using Fusion.Core.Parsers.Internal;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class ErrorListParser : Parser, IParser<ErrorCollection>
+    public class ErrorListParser : Parser<ErrorCollection>
     {
-        public Response<ErrorCollection> Parse(XDocument document)
+        protected override ErrorCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<ErrorCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var errorParser = new ErrorParser();
             var errorList = new ErrorCollection();
             foreach (var element in document.Root.Element("root").Element("rowset").Elements("row"))
@@ -19,8 +16,7 @@ namespace Fusion.Core.Parsers
                 var error = errorParser.Parse(element);
                 errorList.Add(error);
             }
-            response.Data = errorList;
-            return response;
+            return errorList;
         }
     }
 }

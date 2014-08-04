@@ -1,20 +1,16 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class AssetsParser : Parser, IParser<AssetCollection>
+    public class AssetsParser: Parser<AssetCollection>
     {
-        public Response<AssetCollection> Parse(XDocument document)
+        protected override AssetCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<AssetCollection>(document);
-            if (response.HasErrors)
-                return response;
-
-            response.Data = Parse(document.Root.Element("result").Element("rowset"));
-            return response;
+            return Parse(document.Root.Element("result").Element("rowset"));
         }
 
         private AssetCollection Parse(XContainer containerElement)
@@ -30,7 +26,7 @@ namespace Fusion.Core.Parsers
                                 TypeId = element.AttributeAsLong("typeID"),
                                 Quantity = element.AttributeAsInt("quantity"),
                                 Flag = element.AttributeAsInt("flag"),
-                                Singleton = element.AttributeAsString("singleton").Equals("1") ? true : false
+                                Singleton = element.AttributeAsString("singleton").Equals("1")
                             };
 
                 if (element.HasElements)

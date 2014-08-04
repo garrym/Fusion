@@ -3,11 +3,23 @@ using System.Xml.Linq;
 using Fusion.Core.Extensions;
 using Fusion.Core.Types;
 
-namespace Fusion.Core.Parsers
+namespace Fusion.Core.Parsers.Abstract
 {
-    public class Parser
+    public abstract class Parser<T>
     {
-        protected static Response<T> BuildResponse<T>(XDocument document)
+        public Response<T> Parse(XDocument document)
+        {
+            var response = BuildResponse(document);
+            if (response.HasErrors)
+                return response;
+
+            response.Data = ParseData(document);
+            return response;
+        }
+
+        protected abstract T ParseData(XDocument document);
+
+        protected Response<T> BuildResponse(XDocument document)
         {
             var response = new Response<T>();
             if (ContainsErrors(document))
@@ -21,12 +33,12 @@ namespace Fusion.Core.Parsers
             return response;
         }
 
-        internal static bool ContainsErrors(XDocument document)
+        internal bool ContainsErrors(XDocument document)
         {
             return document.Root != null && document.Root.Element("error") != null;
         }
 
-        private static Error ParseError(XDocument document)
+        private Error ParseError(XDocument document)
         {
             if (document.Root == null)
                 return new Error {Code = -1, Message = "Unknown error"};

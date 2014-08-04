@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace Fusion.Core.Parsers
+namespace Fusion.Core.Parsers.Abstract
 {
     public interface IInternalParser<T>
     {

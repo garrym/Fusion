@@ -1,18 +1,15 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class WalletJournalParser : Parser, IParser<WalletJournalItemCollection>
+    public class WalletJournalParser: Parser<WalletJournalItemCollection>
     {
-        public Response<WalletJournalItemCollection> Parse(XDocument document)
+        protected override WalletJournalItemCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<WalletJournalItemCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var walletJournalItems = new WalletJournalItemCollection();
             foreach (var element in document.Root.Element("result").Element("rowset").Elements("row"))
             {
@@ -35,8 +32,7 @@ namespace Fusion.Core.Parsers
                                             };
                 walletJournalItems.Add(walletJournalItem);
             }
-            response.Data = walletJournalItems;
-            return response;
+            return walletJournalItems;
         }
     }
 }

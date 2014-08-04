@@ -1,18 +1,17 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Enums;
+using Fusion.Core.Parsers.Abstract;
 
 namespace Fusion.Core.Parsers
 {
-    public class AuthenticationKeyTypeParser : Parser, IParser<AuthenticationKeyType>
+    public class AuthenticationKeyTypeParser : Parser<AuthenticationKeyType>
     {
-        public Response<AuthenticationKeyType> Parse(XDocument document)
+        protected override AuthenticationKeyType ParseData(XDocument document)
         {
-            var response = BuildResponse<AuthenticationKeyType>(document);
+            var response = BuildResponse(document);
             if (response.HasErrors && response.Error.Code == 106)
-                response.Data = AuthenticationKeyType.Limited;
-            else
-                response.Data = AuthenticationKeyType.Full;
-            return response;
+                return AuthenticationKeyType.Limited;
+            return AuthenticationKeyType.Full;
         }
     }
 }

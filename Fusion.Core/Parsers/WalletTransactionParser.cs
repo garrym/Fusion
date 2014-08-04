@@ -1,19 +1,16 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Enums;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class WalletTransactionParser : Parser, IParser<WalletTransactionCollection>
+    public class WalletTransactionParser: Parser<WalletTransactionCollection>
     {
-        public Response<WalletTransactionCollection> Parse(XDocument document)
+        protected override WalletTransactionCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<WalletTransactionCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var walletTransactions = new WalletTransactionCollection();
 
             foreach (var element in document.Root.Element("result").Element("rowset").Elements("row"))
@@ -35,8 +32,7 @@ namespace Fusion.Core.Parsers
                             };
                 walletTransactions.Add(w);
             }
-            response.Data = walletTransactions;
-            return response;
+            return walletTransactions;
         }
     }
 }

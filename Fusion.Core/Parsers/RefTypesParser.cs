@@ -1,18 +1,15 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class RefTypesParser : Parser, IParser<RefTypeCollection>
+    public class RefTypesParser: Parser<RefTypeCollection>
     {
-        public Response<RefTypeCollection> Parse(XDocument document)
+        protected override RefTypeCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<RefTypeCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var refTypes = new RefTypeCollection();
             foreach (var element in document.Root.Element("result").Element("rowset").Elements("row"))
             {
@@ -24,8 +21,7 @@ namespace Fusion.Core.Parsers
 
                 refTypes.Add(refType);
             }
-            response.Data = refTypes;
-            return response;
+            return refTypes;
         }
     }
 }

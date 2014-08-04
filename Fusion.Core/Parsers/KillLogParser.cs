@@ -1,19 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Linq;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
+using Fusion.Core.Parsers.Internal;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class KillLogParser : Parser, IParser<KillLogCollection>
+    public class KillLogParser: Parser<KillLogCollection>
     {
-        public Response<KillLogCollection> Parse(XDocument document)
+        protected override KillLogCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<KillLogCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var attackerParser = new AttackerParser();
             var victimParser = new VictimParser();
 
@@ -36,8 +34,7 @@ namespace Fusion.Core.Parsers
 
                 killLogs.Add(killLog);
             }
-            response.Data = killLogs;
-            return response;
+            return killLogs;
         }
     }
 }

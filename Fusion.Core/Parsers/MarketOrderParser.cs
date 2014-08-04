@@ -1,19 +1,16 @@
 ﻿using System.Xml.Linq;
 using Fusion.Core.Enums;
 using Fusion.Core.Extensions;
+using Fusion.Core.Parsers.Abstract;
 using Fusion.Core.Types;
 using Fusion.Core.Types.Collections;
 
 namespace Fusion.Core.Parsers
 {
-    public class MarketOrderParser : Parser, IParser<MarketOrderCollection>
+    public class MarketOrderParser: Parser<MarketOrderCollection>
     {
-        public Response<MarketOrderCollection> Parse(XDocument document)
+        protected override MarketOrderCollection ParseData(XDocument document)
         {
-            var response = BuildResponse<MarketOrderCollection>(document);
-            if (response.HasErrors)
-                return response;
-
             var marketOrders = new MarketOrderCollection();
             foreach (var element in document.Root.Element("result").Element("rowset").Elements("row"))
             {
@@ -37,8 +34,7 @@ namespace Fusion.Core.Parsers
                                       };
                 marketOrders.Add(marketOrder);
             }
-            response.Data = marketOrders;
-            return response;
+            return marketOrders;
         }
     }
 }
