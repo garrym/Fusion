@@ -2,8 +2,8 @@
 
 namespace Fusion.Core.Parsers.Abstract
 {
-    public interface IInternalParser<T>
+    public abstract class InternalParser<T>
     {
-        T Parse(XElement element);
+        public abstract T Parse(XElement element);
     }
 }

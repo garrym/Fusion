@@ -5,9 +5,9 @@ using Fusion.Core.Types;
 
 namespace Fusion.Core.Parsers.Internal
 {
-    public class VictimParser : IInternalParser<Victim>
+    public class VictimParser : InternalParser<Victim>
     {
-        public Victim Parse(XElement element)
+        public override Victim Parse(XElement element)
         {
             var victim = new Victim
                              {

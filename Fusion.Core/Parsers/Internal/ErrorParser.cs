@@ -5,9 +5,9 @@ using Fusion.Core.Types;
 
 namespace Fusion.Core.Parsers.Internal
 {
-    public class ErrorParser : IInternalParser<Error>
+    public class ErrorParser : InternalParser<Error>
     {
-        public Error Parse(XElement element)
+        public override Error Parse(XElement element)
         {
             var error = new Error
                             {

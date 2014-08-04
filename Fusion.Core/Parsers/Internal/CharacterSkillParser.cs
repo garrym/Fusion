@@ -5,9 +5,9 @@ using Fusion.Core.Types;
 
 namespace Fusion.Core.Parsers.Internal
 {
-    public class CharacterSkillParser : IInternalParser<CharacterSkill>
+    public class CharacterSkillParser : InternalParser<CharacterSkill>
     {
-        public CharacterSkill Parse(XElement element)
+        public override CharacterSkill Parse(XElement element)
         {
             var skill = new CharacterSkill
                             {

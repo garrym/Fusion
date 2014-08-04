@@ -24,7 +24,7 @@ namespace Fusion.Core
         {
             get
             {
-                var builder = new UriBuilder {Scheme = "http", Host = "api.eve-online.com", Path = RequestType.Url};
+                var builder = new UriBuilder { Scheme = "http", Host = "api.eve-online.com", Path = RequestType.Url };
 
                 var requestParams = new NameValueCollection();
                 if (RequestType.AuthenticationRequired)
@@ -56,7 +56,7 @@ namespace Fusion.Core
         public void AddParameter(RequestParameter parameter, object value)
         {
             if (value is Array)
-                parameters.Add(parameter.GetStringValue(), string.Join(",", (long[]) value));
+                parameters.Add(parameter.GetStringValue(), string.Join(",", (long[])value));
             else
                 parameters.Add(parameter.GetStringValue(), value.ToString());
         }

@@ -25,15 +25,13 @@ namespace Fusion.Core.Parsers.Abstract
             if (ContainsErrors(document))
                 response.Error = ParseError(document);
 
-            // TODO: Populate all other properties, such as cachedUntil, etc.
-
             response.CurrentTime = DateTime.Parse(document.Root.Element("currentTime").Value);
             response.CachedUntil = DateTime.Parse(document.Root.Element("cachedUntil").Value);
 
             return response;
         }
 
-        internal bool ContainsErrors(XDocument document)
+        public bool ContainsErrors(XDocument document)
         {
             return document.Root != null && document.Root.Element("error") != null;
         }
@@ -41,7 +39,7 @@ namespace Fusion.Core.Parsers.Abstract
         private Error ParseError(XDocument document)
         {
             if (document.Root == null)
-                return new Error {Code = -1, Message = "Unknown error"};
+                return new Error { Code = -1, Message = "Unknown error" };
 
             var element = document.Root.Element("error");
             var error = new Error

@@ -12,7 +12,7 @@ namespace Fusion.Core.Tests
     {
         private IApiClient GetApiClient()
         {
-
+            var key = new NewAuthenticationKey(628894, "UzMTNVNrW3xCL5WeX8eQZI1cQM7enWEV4OGKaZ1UBIl8Bwj3YuroRWbN5JT6idAj");
             var mockCacheProvider = new Mock<ICacheProvider>();
             var client = new ApiClient(key, mockCacheProvider.Object);
             return client;
