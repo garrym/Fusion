@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using Fusion.Core.Authentication;
 using Fusion.Core.Enums;
 using Fusion.Core.Extensions;
@@ -11,13 +12,13 @@ namespace Fusion.Core
     {
         private readonly IDictionary<string, string> parameters = new Dictionary<string, string>();
 
-        public Request(RequestType requestType, IAuthenticationKey authenticationKey = null)
+        public Request(RequestType requestType, AuthenticationKey authenticationKey = null)
         {
             RequestType = requestType;
             AuthenticationKey = authenticationKey;
         }
 
-        private IAuthenticationKey AuthenticationKey { get; set; }
+        private AuthenticationKey AuthenticationKey { get; set; }
         public RequestType RequestType { get; private set; }
 
         public string Url
@@ -29,19 +30,9 @@ namespace Fusion.Core
                 var requestParams = new NameValueCollection();
                 if (RequestType.AuthenticationRequired)
                 {
-                    var keyType = AuthenticationKey.GetType();
-                    if (keyType == typeof(AuthenticationKey))
-                    {
-                        var key = (AuthenticationKey)AuthenticationKey;
-                        requestParams.Add("userID", key.UserId.ToString());
-                        requestParams.Add("apiKey", key.Key);
-                    }
-                    else if (keyType == typeof(NewAuthenticationKey))
-                    {
-                        var key = (NewAuthenticationKey)AuthenticationKey;
-                        requestParams.Add("keyID", key.KeyID.ToString());
-                        requestParams.Add("vCode", key.VCode);
-                    }
+                    var key = AuthenticationKey;
+                    requestParams.Add("keyID", key.KeyID.ToString());
+                    requestParams.Add("vCode", key.VCode);
                 }
 
                 foreach (var param in parameters)
@@ -63,13 +54,7 @@ namespace Fusion.Core
 
         public bool IsValid()
         {
-            var valid = true;
-            foreach (var requiredParameter in RequestType.RequiredParameters)
-            {
-                if (!parameters.ContainsKey(requiredParameter))
-                    valid = false;
-            }
-            return valid;
+            return RequestType.RequiredParameters.All(x => parameters.ContainsKey(x));
         }
     }
 }

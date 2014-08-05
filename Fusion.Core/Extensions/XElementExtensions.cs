@@ -8,6 +8,8 @@ namespace Fusion.Core.Extensions
 {
     public static class XElementExtensions
     {
+        #region Values
+
         public static long ValueAsLong(this XElement element)
         {
             return element.ValueAs<long>();
@@ -31,11 +33,10 @@ namespace Fusion.Core.Extensions
         public static T ValueAs<T>(this XElement element, bool required = true)
         {
             var value = element.Value;
-            var converter = TypeDescriptor.GetConverter(typeof(T));
-
             if (value == null)
                 throw new ApiException("Value is blank");
 
+            var converter = TypeDescriptor.GetConverter(typeof(T));
             if (converter == null)
                 throw new ApiException("Could not get TypeConverter for type {0}", typeof(T).ToString());
 
@@ -45,6 +46,9 @@ namespace Fusion.Core.Extensions
             return (T)(converter.ConvertFromInvariantString(value));
         }
 
+        #endregion
+
+        #region Attributes
 
         public static string AttributeAsString(this XElement element, string attributeName)
         {
@@ -115,21 +119,6 @@ namespace Fusion.Core.Extensions
             return list;
         }
 
-        //public static T[] AttributeAsArray<T>(this XElement element, string attributeName, char separator = ',')
-        //{
-        //    var converter = TypeDescriptor.GetConverter(typeof(T));
-        //    if (converter == null)
-        //        throw new CustomException("Unable to get a converter");
-
-        //    var array = new T[]{};
-        //    var values = element.AttributeAsString(attributeName);
-        //    foreach (var value in values.Split(separator))
-        //        if (converter.IsValid(value))
-        //            array.
-        //            list.Add((T)converter.ConvertFromInvariantString(value));
-        //    return array;
-        //}
-
         public static T AttributeAsEnum<T>(this XElement element, string attributeName)
         {
             return (T)Enum.Parse(typeof(T), AttributeAsString(element, attributeName), true);
@@ -152,5 +141,7 @@ namespace Fusion.Core.Extensions
 
             return (T)(converter.ConvertFromInvariantString(value));
         }
+
+        #endregion
     }
 }

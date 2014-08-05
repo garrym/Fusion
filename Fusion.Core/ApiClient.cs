@@ -14,10 +14,10 @@ namespace Fusion.Core
 {
     public class ApiClient : IApiClient
     {
-        private readonly IAuthenticationKey key;
+        private readonly AuthenticationKey key;
         private readonly ICacheProvider cacheProvider;
 
-        public ApiClient(IAuthenticationKey key, ICacheProvider cacheProvider)
+        public ApiClient(AuthenticationKey key, ICacheProvider cacheProvider)
         {
             this.key = key;
             this.cacheProvider = cacheProvider;

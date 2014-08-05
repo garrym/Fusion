@@ -56,8 +56,6 @@
     <Compile Include="Enums\RequestParameter.cs" />
     <Compile Include="Enums\TransactionFor.cs" />
     <Compile Include="Enums\TransactionType.cs" />
-    <Compile Include="Authentication\IAuthenticationKey.cs" />
-    <Compile Include="Authentication\NewAuthenticationKey.cs" />
     <Compile Include="Parsers\ErrorListParser.cs" />
     <Compile Include="Parsers\Abstract\IInternalParser.cs" />
     <Compile Include="Parsers\Abstract\Parser.cs" />

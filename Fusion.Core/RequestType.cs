@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Fusion.Core
 {
@@ -8,24 +9,35 @@ namespace Fusion.Core
         {
             Url = url;
             AuthenticationRequired = authenticationRequired;
-            RequiredParameters = new HashSet<string>();
-            OptionalParameters = new HashSet<string>();
         }
 
-        public string Url { get; private set; }
-        public bool AuthenticationRequired { get; private set; }
-        public HashSet<string> RequiredParameters { get; private set; }
-        public HashSet<string> OptionalParameters { get; private set; }
+        public string Url
+        { get; private set; }
+
+        public bool AuthenticationRequired
+        { get; private set; }
+
+        private readonly List<string> requiredParameters = new List<string>();
+        public ReadOnlyCollection<string> RequiredParameters
+        {
+            get { return requiredParameters.AsReadOnly(); }
+        }
+
+        private readonly List<string> optionalParameters = new List<string>();
+        public ReadOnlyCollection<string> OptionalParameters
+        {
+            get { return optionalParameters.AsReadOnly(); }
+        }
 
         public RequestType AddRequiredParameter(string parameterName)
         {
-            RequiredParameters.Add(parameterName);
+            requiredParameters.Add(parameterName);
             return this;
         }
 
         public RequestType AddOptionalParameter(string parameterName)
         {
-            OptionalParameters.Add(parameterName);
+            optionalParameters.Add(parameterName);
             return this;
         }
     }

@@ -1,14 +1,13 @@
 ﻿namespace Fusion.Core.Authentication
 {
-    public class AuthenticationKey : IAuthenticationKey
+    public class AuthenticationKey
     {
-        public AuthenticationKey(int userId, string key)
+        public AuthenticationKey(int keyId, string vCode)
         {
-            UserId = userId;
-            Key = key;
+            KeyID = keyId;
+            VCode = vCode;
         }
-
-        public string Key { get; private set; }
-        public int UserId { get; private set; }
+        public int KeyID { get; set; }
+        public string VCode { get; set; }
     }
 }
